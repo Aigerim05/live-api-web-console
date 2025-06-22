@@ -20,27 +20,14 @@ import './explainer-picker.scss';
 import { useLiveAPIContext } from '../../contexts/LiveAPIContext';
 
 const EXPLAINER_TOPICS = [
-  { emoji: '🏠', label: 'mortgages' },
-  { emoji: '🌌', label: 'dark matter' },
-  { emoji: '🌋', label: 'volcanoes' },
-  { emoji: '🍄', label: 'mycelium networks' },
-  { emoji: '🌕', label: 'cryptocurrency' },
-  { emoji: '🤖', label: 'machine learning' },
-  { emoji: '🍞', label: 'how yeast works' },
-  { emoji: '🔮', label: 'quantum physics' },
-  { emoji: '👑', label: 'the plot of macbeth' },
-  { emoji: '🧬', label: 'DNA' },
-  { emoji: '⚫', label: 'black holes' }
+  { emoji: '🏠', label: 'Client asks for discount.' },
+  { emoji: '🌌', label: 'Client is in a rush.' },
 ];
 
 const EXPLANATION_STYLES = [
-  { emoji: '🍳', label: 'a cooking metaphor' },
-  { emoji: '⚽', label: 'a sports commentator' },
-  { emoji: '🏴‍☠️', label: 'a pirate' },
-  { emoji: '⚔️', label: 'a medieval knight' },
-  { emoji: '🔬', label: 'a scientist' },
-  { emoji: '✍️', label: 'a poet' },
-  { emoji: '🔍', label: 'a detective' }
+  { emoji: '🍳', label: 'Aggressive' },
+  { emoji: '⚽', label: 'Funny' },
+  { emoji: '🏴‍☠️', label: 'Passive' },
 ];
 
 const ExplainerPicker: React.FC = () => {
@@ -60,8 +47,20 @@ const ExplainerPicker: React.FC = () => {
     if (connected && newTopic && newStyle) {
       client.send([
         {
-          text: `Explain ${newTopic} in the style of ${newStyle}. 
-          Don't change your style until I ask you to.`,
+          text: `
+          Say hello to the user first.
+          You are simulating a ${newStyle} client in this scenario: ${newTopic}.  
+          Your goal is to realistically portray a potential customer with this personality and situation.  
+          Don't be too emotional — stay respectful, realistic, and human-like in tone.
+
+          Ask relevant questions or express concerns naturally. You may be skeptical, curious, or distracted — depending on your type.
+
+          After 2–3 messages, make a decision on whether to proceed with the purchase or not — based on how well the user handles the conversation.  
+
+          Be concise. Use clear and natural language. Do not act like a chatbot — act like a real person.
+
+          Respond in the same language as the user.
+          You should send me summary of improvements to increase the chances of the user buying the product.`,
         },
       ]);
     }
@@ -74,8 +73,20 @@ const ExplainerPicker: React.FC = () => {
         // Send initial explanation
         client.send([
           {
-            text: `Explain ${selectedTopic} in the style of ${selectedStyle}. 
-            Don't change your style until I ask you to.`,
+            text: `Say hello to the user first.
+            You are simulating a ${selectedStyle} client in this scenario: ${selectedTopic}.  
+            Your goal is to realistically portray a potential customer with this personality and situation.  
+            Don't be too emotional — stay respectful, realistic, and human-like in tone.
+
+            Ask relevant questions or express concerns naturally. You may be skeptical, curious, or distracted — depending on your type.
+
+            After 2–3 messages, make a decision on whether to proceed with the purchase or not — based on how well the user handles the conversation.  
+
+            Be concise. Use clear and natural language. Do not act like a chatbot — act like a real person.
+
+            Respond in the same language as the user.
+            
+            You should send me summary of improvements to increase the chances of the user buying the product.`,
           },
         ]);
       } catch (error) {
