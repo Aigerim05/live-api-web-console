@@ -2,6 +2,7 @@
   "name": "multimodal-live-api-web-console",
   "version": "0.1.0",
   "dependencies": {
+    "@google/genai": "^1.6.0",
     "classnames": "^2.5.1",
     "dotenv-flow": "^4.1.0",
     "eventemitter3": "^5.0.1",
@@ -15,6 +16,7 @@
     "vega": "^5.30.0",
     "vega-embed": "^6.29.0",
     "vega-lite": "^5.22.0",
+    "wavefile": "^11.0.0",
     "web-vitals": "^2.1.4",
     "zustand": "^5.0.1"
   },
@@ -48,10 +50,10 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
+    "@types/lodash": "^4.17.13",
     "@types/node": "^16.18.119",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
-    "@types/lodash": "^4.17.13",
     "ts-node": "^10.9.2",
     "typescript": "^5.6.3"
   },
